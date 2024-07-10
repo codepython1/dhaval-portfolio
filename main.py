@@ -3,7 +3,7 @@ import streamlit_option_menu as option_menu
 import google.generativeai as genai
 import time
 
-apikey = st.secrets["API_KEY"]
+apikey = st.secrets["GOOGLE_API_KEY"]
 
 st.set_page_config(layout="centered",page_title="Dhaval")
 st.write("###")
