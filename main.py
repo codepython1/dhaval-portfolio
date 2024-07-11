@@ -1,5 +1,4 @@
 import streamlit as st
-import streamlit_option_menu as option_menu
 import google.generativeai as genai
 import time
 
@@ -14,6 +13,10 @@ def response_dialog(res):
     if st.button("Close"):
         st.rerun()
     
+#Load CSS
+with open("style.css") as f:
+    st.markdown(f'<style>{f.read()}</style>',unsafe_allow_html=True)
+
 
 # <-------------------- A.I -------------------->
 
@@ -23,10 +26,11 @@ model = genai.GenerativeModel('gemini-1.5-flash')
 persona = """
     You are Dhaval A.I Chabot. You help people answer their questions about your self that is Dhaval
     Answer as if you are responding .dont answer in secound or third person.
-    If you don't know the answer, you simply say "Than't a secret !".
+    If you don't know the answer, you simply say "That's a secret !".
 
     Here is more info about Dhaval:
     Dhaval Patil is a youngest programeer and student. He is a Python developer.
+    Dhaval lives in India.
     He currently studying in 12th standard.
     Dhaval do various things like Learning new things, Developing new things, etc.
     Dhaval's hobby is Making Music..
@@ -38,12 +42,18 @@ persona = """
 
 
 # <-------------------- NAVBAR -------------------->
-with st.container():
-    option = option_menu.option_menu(None,["About","ChatBot","Projects","Contact"],icons=["person","robot","code-slash","chat"],orientation="horizontal",styles={
-        "icon":{"color":"aqua"},
-        "nav-link-selected":{"background-color":"rgb(20, 20, 20)"},       
-        })
-    
+st.markdown("""
+    <div class="nav">
+        <a href="#home" class="bi bi-person">Home</a>
+        <a href="#chatbot" class="bi bi-robot">ChatBot</a>
+        <a href="#projects" class="bi bi-code-slash">Projects</a>
+        <a href="#contact" class="bi bi-chat">Contact</a>    
+                       
+    </div>
+
+""",unsafe_allow_html=True)
+
+
 # <-------------------- ABOUT -------------------->
 st.write(" ")
 
@@ -87,10 +97,9 @@ col2,col3,col4 = st.columns([2,2,2])
 
 with col2:
     with st.container(border=True):
-        st.header("Hand Detection")
-        # st.page_link("pages/hand_detection.py",label=":blue[View Project]")
+        st.header("Background Changer")
         if st.button("View Project"):
-            st.switch_page("pages/hand_detection.py")
+            st.switch_page("pages/back_ground_change.py")
 
 with col3:
     with st.container(border=True):

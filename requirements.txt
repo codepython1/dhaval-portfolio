@@ -1,6 +1,5 @@
 streamlit
 cvzone
 mediapipe
-streamlit-option-menu
 google-generativeai
-opencv-python-headless
+streamlit-webrtc
