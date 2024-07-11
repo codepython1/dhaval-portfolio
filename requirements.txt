@@ -1,5 +1,6 @@
 streamlit
+opencv-python-headless==4.8.1.78
 cvzone
 mediapipe
 google-generativeai
-streamlit-webrtc
+streamlit_webrtc~=0.47.7
